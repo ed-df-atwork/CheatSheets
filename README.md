@@ -1,59 +1,62 @@
-# 📊 Data Analytics Cheat Sheets
+# Data Professional Cheat Sheets
 
-A central hub for my personal cheat sheets, syntax reminders, and best practices for data analytics. Each guide is formatted in Markdown for easy viewing and quick searching.
+This repository serves as a centralized collection of comprehensive cheat sheets for Data Analysts and Data Engineers. It is designed to provide quick-reference guides for syntax, best practices, and core concepts across the modern data stack.
 
-## 🗂️ Table of Contents
-* [🐍 Python](#-python)
-* [📁 SQL](#-sql)
-* [🎨 Tableau](#-tableau)
-* [🛠️ Alteryx](#-alteryx)
-* [📈 Excel](#-excel)
-* [⚙️ Other Tech](#-other-tech)
+## Data Analysis
 
----
+### SQL
+- Joins and Unions
+- Window Functions (RANK, LEAD, LAG)
+- Common Table Expressions (CTEs)
+- Aggregations and Grouping
+- Subqueries and Performance Optimization
 
-## 🐍 Python
-*Libraries and snippets for Data Science & Automation.*
-* [Pandas & NumPy](./Python/pandas_numpy.md) - Data manipulation and array operations.
-* [Matplotlib & Seaborn](./Python/visualization.md) - Plotting and styling.
-* [Scikit-Learn](./Python/machine_learning.md) - ML workflows and preprocessing.
+### Python for Data Science
+- Pandas: DataFrames, Series, and Indexing
+- NumPy: Array manipulation and Vectorization
+- Matplotlib and Seaborn: Data Visualization
+- Scikit-Learn: Basic ML workflow and preprocessing
 
-## 📁 SQL
-*Querying, database management, and optimization.*
-* [Basic Syntax](./SQL/basics.md) - SELECT, FROM, WHERE, and Joins.
-* [Window Functions](./SQL/window_functions.md) - RANK, LEAD/LAG, and Partitioning.
-* [CTEs & Subqueries](./SQL/advanced_sql.md) - Complex query structuring.
+### Statistics and Math
+- Descriptive Statistics (Mean, Median, Mode, Variance)
+- Probability Distributions
+- Hypothesis Testing and P-values
+- Regression Analysis Basics
 
-## 🎨 Tableau
-*Visualization and BI dashboarding.*
-* [INDEX() Row Label Trick](./Tableau/index_row_labels.md) - Forcing row labels to repeat across every line.
-* [Global Sorting](./Tableau/global_sorting.md) - Sorting across multiple categories and dimensions.
-* [Calculated Fields](./Tableau/calculations.md) - Common formulas and logic.
-* [LOD Expressions](./Tableau/lod_expressions.md) - FIXED, INCLUDE, and EXCLUDE.
+### Business Intelligence Tools
+- Tableau: Calculations and Level of Detail (LOD) expressions
+- Power BI: DAX (Data Analysis Expressions) and Power Query (M)
 
-## 🛠️ Alteryx
-*ETL and data preparation workflows.*
-* [Core Tool Palette](./Alteryx/core_tools.md) - Join, Union, Filter, and Formula.
-* [RegEx in Alteryx](./Alteryx/regex.md) - Parsing strings with the Regex tool.
-* [Macro Basics](./Alteryx/macros.md) - Standard, Batch, and Iterative macros.
+## Data Engineering
 
-## ❄️ Snowflake
-*Cloud data warehousing and performance tuning.*
-* [Warehouses & Compute](./Snowflake/warehouses.md) - Sizing, scaling, and suspension settings.
-* [JSON & Semi-Structured Data](./Snowflake/json_parsing.md) - Flattening, lateral joins, and VARIANT types.
-* [Snowflake Functions](./Snowflake/functions.md) - Zero-copy cloning, Time Travel, and Tasks.
-* [Query Optimization](./Snowflake/optimization.md) - Micro-partitions and clustering keys.
+### Programming and Scripting
+- Python: Context managers, Generators, and Decorators
+- Bash/Shell: File manipulation and automation
+- Regular Expressions (Regex)
 
-## 📈 Excel
-*Advanced formulas and data cleaning.*
-* [Lookup & Reference](./Excel/lookups.md) - XLOOKUP, INDEX/MATCH, and OFFSET.
-* [Power Query (M)](./Excel/power_query.md) - Data transformation steps.
-* [Shortcuts](./Excel/shortcuts.md) - Essential navigation and editing keys.
+### Databases and Storage
+- Data Modeling: Star Schema vs Snowflake Schema
+- Normalization (1NF, 2NF, 3NF)
+- NoSQL: Document, Key-Value, and Graph databases
+- Cloud Data Warehousing: Snowflake, BigQuery, and Redshift
 
-## ⚙️ Other Tech
-* [Git & GitHub](./General/git.md) - Essential version control commands.
-* [Power BI / DAX](./General/power_bi.md) - DAX measures and data modeling.
+### Big Data and Processing
+- Apache Spark: PySpark syntax and RDDs
+- Hadoop: HDFS and MapReduce fundamentals
+- Kafka: Producers, Consumers, and Topics
 
+### Orchestration and Workflow
+- Apache Airflow: DAGs, Operators, and Hooks
+- dbt (data build tool): Models, Tests, and Documentation
+- Docker: Containerization and Docker Compose
 
----
-*Maintained by [Eddie Flores](https://github.com/eddf-merge/)*
+### Cloud and DevOps
+- AWS/Azure/GCP core service mappings
+- Git: Branching, Merging, and Rebase
+- CI/CD Pipelines for Data
+
+## Contributing
+Contributions are welcome. Please ensure that any added cheat sheets are formatted clearly and focus on high-frequency syntax and concepts. Submit a Pull Request with a brief description of the changes.
+
+## License
+Distributed under the MIT License. See LICENSE for more information.
