@@ -5,11 +5,19 @@ This repository serves as a centralized collection of comprehensive cheat sheets
 ## Data Analysis
 
 ### SQL
-- Joins and Unions
-- Window Functions (RANK, LEAD, LAG)
-- Common Table Expressions (CTEs)
-- Aggregations and Grouping
-- Subqueries and Performance Optimization
+- [SQL Basics](SQL/01_sql_basics.md)
+- [Joins](SQL/02_joins.md)
+- [Window Functions](SQL/03_window_functions.md)
+- [Aggregation](SQL/04_aggregation.md)
+- [CTEs and Subqueries](SQL/05_ctes_and_subqueries.md)
+- [String Functions](SQL/06_string_functions.md)
+- [Date and Time Functions](SQL/07_date_time_functions.md)
+- [Data Cleaning](SQL/08_data_cleaning.md)
+- [Indexing and Performance](SQL/09_indexing_performance.md)
+- [Reporting Tools](SQL/10_reporting_tools.md)
+- [Stored Procedures](SQL/11_stored_procedures.md)
+- [Data Profiling](SQL/12_data_profiling.md)
+- [Performance Tuning](SQL/13_performance_tuning.md)
 
 ### Python for Data Science
 - Pandas: DataFrames, Series, and Indexing
