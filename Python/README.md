@@ -1,47 +1,20 @@
-# 🐍 Python Cheat Sheets for Analysts & Developers
+# Python for Data Cheat Sheets
 
-Welcome to your go-to library of Python cheat sheets! Whether you're wrangling data, building reports, or scripting analytics tools, this collection is built to help you move faster and smarter.
+This directory contains reference guides for Python programming, data manipulation, and visualization.
 
----
+## Contents
 
-## 📚 Cheat Sheets
+- [01 Python Basics](01_python_basics.md) - Loops, Conditionals, and Functions.
+- [02 Data Structures](02_data_structures.md) - Lists, Dictionaries, Sets, and Tuples.
+- [03 Pandas](03_pandas.md) - DataFrames, Series, and Indexing.
+- [04 NumPy](04_numpy.md) - Array manipulation and Mathematical operations.
+- [05 Matplotlib and Seaborn](05_matplotlib_seaborn.md) - Plotting and Data Visualization.
+- [06 Python and SQL Integration](06_python_sql.md) - SQLAlchemy, psycopg2, and pyodbc.
+- [07 Data Cleaning with Python](07_data_cleaning.md) - Handling missing data and type conversion.
+- [08 File Input/Output](08_file_io.md) - Reading and writing CSV, JSON, and Parquet.
+- [09 Visualization Examples (Notebook)](09_charts.ipynb) - Interactive plotting examples.
+- [10 Regular Expressions (Regex)](10_regex.md) - Pattern matching and string manipulation.
 
-| File | Description |
-|------|-------------|
-| [01_python_basics.md](01_python_basics.md) | Core syntax, variables, functions, and control flow |
-| [02_data_structures.md](02_data_structures.md) | Lists, dictionaries, sets, tuples – when and how to use them |
-| [03_pandas.md](03_pandas.md) | Working with DataFrames for cleaning, analyzing, and aggregating data |
-| [04_numpy.md](04_numpy.md) | Fast numerical operations, arrays, and math in Python |
-| [05_matplotlib_seaborn.md](05_matplotlib_seaborn.md) | Create beautiful charts and plots with ease |
-| [06_python_sql.md](06_python_sql.md) | Connect Python to SQL databases and run queries |
-| [07_data_cleaning.md](07_data_cleaning.md) | Clean, transform, and sanitize messy data |
-| [08_file_io.md](08_file_io.md) | Read and write CSV, Excel, JSON, and text files |
-| [09_debugging_logging.md](09_debugging_logging.md) | Catch bugs, handle errors, and log like a pro |
-| [10_regex.md](10_regex.md) | Extract, match, and clean text using regular expressions |
-
----
-
-## 🧠 Who Is This For?
-- Data Analysts  
-- Python Developers  
-- BI Engineers  
-- Anyone wrangling data with Python
-
----
-
-## 🚀 How to Use This Repo
-- Bookmark your favorite `.md` files  
-- Reference while coding or learning  
-- Use in interviews or job prep  
-- Fork and contribute more cheat sheets!
-
----
-
-## ✨ Coming Soon
-- Python for APIs (Requests, JSON, etc.)  
-- Python for Automation (Scripting, OS, Scheduling)  
-- Python for Machine Learning (Scikit-learn starter)
-
----
-
-Happy scripting! 🧵🐍
+## Environment
+Ensure you have the necessary libraries installed using pip:
+`pip install pandas numpy matplotlib seaborn sqlalchemy`
