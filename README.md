@@ -4,70 +4,34 @@ This repository serves as a centralized collection of comprehensive cheat sheets
 
 ## Data Analysis
 
-### SQL
-- [SQL Basics](SQL/01_sql_basics.md)
-- [Joins](SQL/02_joins.md)
-- [Window Functions](SQL/03_window_functions.md)
-- [Aggregation](SQL/04_aggregation.md)
-- [CTEs and Subqueries](SQL/05_ctes_and_subqueries.md)
-- [String Functions](SQL/06_string_functions.md)
-- [Date and Time Functions](SQL/07_date_time_functions.md)
-- [Data Cleaning](SQL/08_data_cleaning.md)
-- [Indexing and Performance](SQL/09_indexing_performance.md)
-- [Reporting Tools](SQL/10_reporting_tools.md)
-- [Stored Procedures](SQL/11_stored_procedures.md)
-- [Data Profiling](SQL/12_data_profiling.md)
-- [Performance Tuning](SQL/13_performance_tuning.md)
+### [SQL Reference](./SQL/)
+This section covers essential and advanced database querying techniques. Content includes fundamental syntax, complex joins, window functions, and common table expressions (CTEs). Advanced topics such as stored procedures, performance tuning, and indexing strategies are also documented to assist in optimizing query execution and reporting workflows.
 
-### Python for Data Science
-- [Python Basics](Python/01_python_basics.md)
-- [Data Structures](Python/02_data_structures.md)
-- [Pandas](Python/03_pandas.md)
-- [NumPy](Python/04_numpy.md)
-- [Matplotlib and Seaborn](Python/05_matplotlib_seaborn.md)
-- [Python and SQL Integration](Python/06_python_sql.md)
-- [Data Cleaning with Python](Python/07_data_cleaning.md)
-- [File Input/Output](Python/08_file_io.md)
-- [Visualization Examples (Notebook)](Python/09_charts.ipynb)
-- [Regular Expressions (Regex)](Python/10_regex.md)
+### [Python for Data Science](./Python/)
+A collection of guides focusing on data manipulation, analysis, and visualization. Topics range from core Python structures and file I/O to heavy-hitting libraries like Pandas and NumPy. It also includes references for data cleaning workflows, regex patterns, and integrating Python with SQL databases.
 
 ### Statistics and Math
-- Descriptive Statistics (Mean, Median, Mode, Variance)
-- Probability Distributions
-- Hypothesis Testing and P-values
-- Regression Analysis Basics
+Summary of mathematical foundations required for data interpretation. This includes descriptive statistics, probability distributions, hypothesis testing, and the fundamentals of regression analysis to ensure rigorous analytical results.
 
 ### Business Intelligence Tools
-- Tableau: Calculations and Level of Detail (LOD) expressions
-- Power BI: DAX (Data Analysis Expressions) and Power Query (M)
+Best practices and syntax for major BI platforms. Focuses on Tableau calculations (LOD expressions) and Power BI development using DAX and Power Query (M) to build interactive and scalable dashboards.
 
 ## Data Engineering
 
 ### Programming and Scripting
-- Python: Context managers, Generators, and Decorators
-- Bash/Shell: File manipulation and automation
-- Regular Expressions (Regex)
+Advanced scripting concepts tailored for data automation. Topics cover Python-specific patterns like generators and decorators, alongside Bash/Shell scripting for file system manipulation and automation.
 
 ### Databases and Storage
-- Data Modeling: Star Schema vs Snowflake Schema
-- Normalization (1NF, 2NF, 3NF)
-- NoSQL: Document, Key-Value, and Graph databases
-- Cloud Data Warehousing: Snowflake, BigQuery, and Redshift
+Architectural references for data persistence. Coverage includes relational data modeling (Star and Snowflake schemas), normalization principles, NoSQL database types, and the nuances of cloud data warehousing platforms like Snowflake and BigQuery.
 
 ### Big Data and Processing
-- Apache Spark: PySpark syntax and RDDs
-- Hadoop: HDFS and MapReduce fundamentals
-- Kafka: Producers, Consumers, and Topics
+Documentation on distributed computing and stream processing. This includes Apache Spark (PySpark), Hadoop ecosystems, and real-time data ingestion with Kafka.
 
 ### Orchestration and Workflow
-- Apache Airflow: DAGs, Operators, and Hooks
-- dbt (data build tool): Models, Tests, and Documentation
-- Docker: Containerization and Docker Compose
+Guides for managing complex data pipelines and environments. Includes syntax for Apache Airflow DAGs, dbt modeling and testing, and containerization strategies using Docker.
 
 ### Cloud and DevOps
-- AWS/Azure/GCP core service mappings
-- Git: Branching, Merging, and Rebase
-- CI/CD Pipelines for Data
+References for deploying and maintaining data infrastructure. This covers core service mappings across AWS, Azure, and GCP, as well as version control with Git and implementing CI/CD pipelines for data products.
 
 ## Contributing
 Contributions are welcome. Please ensure that any added cheat sheets are formatted clearly and focus on high-frequency syntax and concepts. Submit a Pull Request with a brief description of the changes.
