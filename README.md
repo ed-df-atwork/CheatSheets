@@ -20,10 +20,16 @@ This repository serves as a centralized collection of comprehensive cheat sheets
 - [Performance Tuning](SQL/13_performance_tuning.md)
 
 ### Python for Data Science
-- Pandas: DataFrames, Series, and Indexing
-- NumPy: Array manipulation and Vectorization
-- Matplotlib and Seaborn: Data Visualization
-- Scikit-Learn: Basic ML workflow and preprocessing
+- [Python Basics](Python/01_python_basics.md)
+- [Data Structures](Python/02_data_structures.md)
+- [Pandas](Python/03_pandas.md)
+- [NumPy](Python/04_numpy.md)
+- [Matplotlib and Seaborn](Python/05_matplotlib_seaborn.md)
+- [Python and SQL Integration](Python/06_python_sql.md)
+- [Data Cleaning with Python](Python/07_data_cleaning.md)
+- [File Input/Output](Python/08_file_io.md)
+- [Visualization Examples (Notebook)](Python/09_charts.ipynb)
+- [Regular Expressions (Regex)](Python/10_regex.md)
 
 ### Statistics and Math
 - Descriptive Statistics (Mean, Median, Mode, Variance)
