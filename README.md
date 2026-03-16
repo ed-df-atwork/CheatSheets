@@ -33,8 +33,3 @@ Guides for managing complex data pipelines and environments. Includes syntax for
 ### Cloud and DevOps
 References for deploying and maintaining data infrastructure. This covers core service mappings across AWS, Azure, and GCP, as well as version control with Git and implementing CI/CD pipelines for data products.
 
-## Contributing
-Contributions are welcome. Please ensure that any added cheat sheets are formatted clearly and focus on high-frequency syntax and concepts. Submit a Pull Request with a brief description of the changes.
-
-## License
-Distributed under the MIT License. See LICENSE for more information.
