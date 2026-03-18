@@ -1,30 +1,44 @@
-# Data Analyst’s Modern Cheat Sheets (2026 Edition) 📊
+# Data Analyst Cheat Sheets 📊
 
-A collection of high-impact, scannable guides designed for the modern data workflow. This repository bridges the gap between raw technical syntax and high-level business strategy, covering everything from AI-assisted SQL to cloud infrastructure performance.
+## 📂 Repository Overview
 
-## 📂 Repository Structure
+### 🏛️ Business Analysis
+*Focused on moving from "data person" to "business partner."*
+*   **AI-Powered Analytics & Prompting**: Frameworks (R-O-C-E) for using LLMs to write, debug, and optimize.
+*   **Business Impact & KPI**: North Star metrics, unit economics, and growth formulas.
+*   **Critical Thinking & Bias Awareness**: Mental models to avoid paradoxes and statistical fallacies.
+*   **Data Storytelling & Dashboard Design**: Visual selection matrices and stakeholder-specific design.
+*   **Modern Data Infrastructure**: Analytics engineering (dbt) and cloud warehouse architecture.
 
+### 🐍 Python
+*End-to-end data science and automation workflows.*
+*   **Core**: Basics, OOP/Iterators/Decorators, and Testing & Best Practices.
+*   **Data Ops**: Pandas, Numpy, Data Cleaning, and File IO.
+*   **Visualization**: Matplotlib, Seaborn, and Custom Charts.
+*   **Advanced**: Machine Learning, Web Development & APIs, and Python-SQL integration.
+*   **DevOps**: Server Deployment, Version Management, and Debugging/Logging.
 
-| Category | File | Description |
-| :--- | :--- | :--- |
-| **Strategy** | `Business Analysis.md` | KPI frameworks, North Star metrics, and ROI-driven analysis. |
-| **Intelligence** | `AI-Powered Analytics & Prompting.md` | R-O-C-E framework, LLM-assisted SQL debugging, and synthetic data. |
-| **Viz Ops** | `SQL Optimization for Tableau Performance.md` | Query tuning, indexing, and reducing dashboard latency. |
-| **Infrastructure** | `Modern Data Infrastructure.md` | Analytics engineering basics (dbt), data modeling, and cloud architecture. |
-| **Deployment** | `Server Deployment & Version Management.md` | Git workflows, CI/CD for data, and production environment stability. |
-| **Next-Gen Notebooks** | `Marimo.md` | Reactive Python notebooks using `uv` and `marimo` for reproducible research. |
+### 💾 SQL
+*Advanced querying and database logic for high-scale environments.*
+*   **Structural Logic**: CTEs, Recursion, and Hierarchies.
+*   **Analytical Power**: Window functions and complex aggregations.
+*   **Programmability**: Stored procedures, UDFs, and ACID transactions.
+*   **Data Wrangling**: JSON handling, Pivoting, and Data Profiling.
+*   **Optimization**: Performance tuning, Indexing strategies, and Execution plans.
 
-## 🛠️ Key Themes
-- **AI-First Workflow**: Moving beyond manual coding by using LLMs as a "thinking partner."
-- **Efficiency**: Leveraging `uv` for lightning-fast Python package management and `marimo` for interactive data apps.
-- **Business Impact**: Shifting focus from "building charts" to "driving decisions" via structured frameworks.
-- **Performance**: Deep dives into Snowflake, BigQuery, and Tableau connectivity.
-
-## 🚀 How to Use
-These sheets are formatted in **Markdown** for easy integration into Obsidian, Notion, or GitHub Wikis. Each sheet includes:
-1.  **Core Concepts**: The "why" behind the technique.
-2.  **Code Blocks**: Copy-pasteable snippets for SQL, Python, and CLI.
-3.  **Checklists**: Quick "sanity checks" before you ship your analysis.
+### 🎨 Tableau
+*Enterprise-grade visualization and interactivity.*
+*   **Calculated Fields**: Specialized logic for Business Performance, Fiscal Dates, and String Wrangling.
+*   **Advanced Analytics**: LOD Expressions and Complex Table Calculations.
+*   **UX/UI**: Actions, Navigation, Interactivity, and Layout Design.
+*   **Admin & Performance**: SQL optimization for Tableau, Server/Cloud deployment, and performance recording.
 
 ---
+
+## 🚀 Usage
+These sheets are optimized for **Markdown** readers (Obsidian, Notion, GitHub). 
+1. **Search**: Use `Ctrl+F` within the directories to find specific functions.
+2. **Copy/Paste**: All code blocks are pre-formatted for immediate use in your IDE or Console.
+3. **Continuous Learning**: Designed to be updated as the "Modern Data Stack" evolves.
+
 *Last updated: March 2026*
