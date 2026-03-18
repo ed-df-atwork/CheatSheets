@@ -1,4 +1,4 @@
-# Tableau Tips and Tricks Cheat Sheet
+# My Tips and Tricks
 
 ### 1. Repeat Row Labels (The `INDEX()` Trick)
 Used to force Tableau to repeat dimension labels on every row instead of merging them, which is essential for text-based reports or Excel exports.
