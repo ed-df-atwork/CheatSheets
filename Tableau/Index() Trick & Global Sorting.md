@@ -25,31 +25,3 @@ Allows you to sort values across different categories/dimensions effectively.
 2.  **Make Discrete:** Right-click that measure on the shelf and select **Discrete** (it will turn blue).
 3.  **Sort:** Right-click it again and select **Sort** to set your ascending or descending order.
 4.  **Hide Header:** Right-click the pill once more and uncheck **Show Header** to hide the "sorting column" while maintaining the specific order.
-
----
-
-### 3. Date Selection (Current vs. Previous)
-A common trick for "Month-over-Month" or "Year-over-Year" comparisons.
-
-```sql
-// Create a Boolean calculation to filter to current year
-YEAR([Order Date]) = YEAR(TODAY())
-
-// Create a calculation for "YTD" (Year to Date)
-[Order Date] <= TODAY() AND DATEDIFF('year', [Order Date], TODAY()) = 0
-```
-
----
-
-### 4. Dynamic Titles & Tooltips
-Make your dashboard more interactive by using Parameters in your text.
-
-*   **Step:** Insert a parameter or field into a Title by clicking **Insert** at the top right of the "Edit Title" dialog.
-*   **Use Case:** "Sales Performance for <Region Parameter>" will update automatically as the user changes the filter.
-
----
-
-### 5. Performance Optimization
-*   **Hide Unused Fields:** Before publishing, go to the Data Pane menu and select **Hide All Unused Fields** to reduce extract size.
-*   **Context Filters:** Right-click a filter and select **Add to Context** (turns gray) to force it to run before other filters—useful for Top N filters.
-*   **Boolean/Integer Filters:** Use `0/1` or `True/False` instead of String filters for faster processing on large datasets.
