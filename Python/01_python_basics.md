@@ -1,55 +1,86 @@
-# 🐍 Python Basics Cheat Sheet
+# Python Cheat Sheet: Loops, Conditionals, and Functions
 
-## 📌 Description
-Covers fundamental syntax and structures in Python. Use this when starting out, prototyping, or working on basic scripting tasks.
+### 1. Conditionals (`if`, `elif`, `else`)
+Used to run code based on whether a condition is `True` or `False`.
 
-## ✍️ Syntax & Variables
 ```python
-x = 5
-name = "Alice"
-PI = 3.14
-```
+score = 85
 
-## 🧮 Arithmetic Operators
-```python
-+  -  *  /  //  %  **
-```
-
-## 🔁 Conditionals
-Use to control logic flow.
-```python
-if x > 0:
-    print("Positive")
-elif x == 0:
-    print("Zero")
+if score >= 90:
+    print("Grade: A")
+elif score >= 80:
+    print("Grade: B")
 else:
-    print("Negative")
+    print("Grade: C")
+
+# Logical Operators
+if score > 70 and score <= 100:
+    print("Passing grade")
+
+# Ternary Operator (One-liner)
+status = "Pass" if score >= 60 else "Fail"
 ```
 
-## 🔁 Loops
-Use to repeat actions.
+---
+
+### 2. Loops (`for`, `while`)
+Loops repeat a block of code until a specific condition is met.
+
+#### For Loops
 ```python
+# Loop through a range (0 to 4)
 for i in range(5):
     print(i)
 
-while x < 10:
-    x += 1
+# Loop through a list
+items = ["apple", "banana", "cherry"]
+for item in items:
+    print(item)
+
+# With index using enumerate
+for index, item in enumerate(items):
+    print(f"{index}: {item}")
 ```
 
-## 🧰 Functions
-Encapsulate reusable logic.
+#### While Loops
 ```python
-def greet(name):
-    return f"Hello, {name}!"
+count = 0
+while count < 5:
+    print(count)
+    count += 1
 ```
 
-## 🧠 List Comprehensions
-Quick transformations.
+#### Loop Control
+- `break`: Stops the loop entirely.
+- `continue`: Skips the current iteration.
+
+---
+
+### 3. Functions
+Functions are reusable blocks of code defined with `def`.
+
 ```python
-squares = [x**2 for x in range(10)]
+# Function with parameters and a default value
+def greet(name, message="Hello"):
+    return f"{message}, {name}!"
+
+# Calling the function
+print(greet("Alice"))           # Hello, Alice!
+print(greet("Bob", "Welcome"))  # Welcome, Bob!
+
+# Lambda (Anonymous) Functions
+square = lambda x: x * x
+print(square(5)) # 25
 ```
 
-## 🔎 Useful Built-ins
+---
+
+### 4. List Comprehensions
+A concise way to create lists using a single line of code.
+
 ```python
-len(), type(), int(), str(), float(), dir(), help()
+# [expression for item in iterable if condition]
+numbers = [1, 2, 3, 4, 5, 6]
+evens = [x for x in numbers if x % 2 == 0]
+# Result: [2, 4, 6]
 ```
