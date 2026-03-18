@@ -1,4 +1,4 @@
-# marimo Cheat Sheet: Reactive Python Notebooks
+# Marimo Cheat Sheet: Reactive Python Notebooks
 
 ### 1. Installation & Getting Started
 `marimo` is a reactive notebook that stores everything as a pure Python (`.py`) file.
