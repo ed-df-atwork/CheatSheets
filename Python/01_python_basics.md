@@ -75,12 +75,34 @@ print(square(5)) # 25
 
 ---
 
-### 4. List Comprehensions
-A concise way to create lists using a single line of code.
+### 4. Data Structures (Lists, Dictionaries, Sets, Tuples)
 
+#### Lists (Ordered, Changeable, Allows Duplicates)
 ```python
-# [expression for item in iterable if condition]
-numbers = [1, 2, 3, 4, 5, 6]
-evens = [x for x in numbers if x % 2 == 0]
-# Result: [2, 4, 6]
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")      # Add to end
+fruits[1] = "blueberry"      # Change item
+last_item = fruits.pop()     # Remove and return last item
+```
+
+#### Dictionaries (Key:Value Pairs, Ordered, Changeable)
+```python
+user = {"name": "Alice", "age": 25}
+print(user["name"])          # Access value
+user["email"] = "a@b.com"    # Add new pair
+keys = user.keys()           # Get all keys
+```
+
+#### Sets (Unordered, Unindexed, No Duplicates)
+```python
+tags = {"python", "coding", "git"}
+tags.add("python")           # Won't add (already exists)
+is_coding = "coding" in tags # Check existence (True)
+```
+
+#### Tuples (Ordered, Unchangeable, Allows Duplicates)
+```python
+coordinates = (10.0, 20.0)
+# coordinates[0] = 15.0      # Error! Tuples cannot be changed
+point_x = coordinates[0]
 ```
