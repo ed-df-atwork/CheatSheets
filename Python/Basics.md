@@ -1,4 +1,4 @@
-# Loops, Conditionals, Functions, and Data Structures
+# Python Cheat Sheet: Loops, Conditionals, and Functions
 
 ### 1. Conditionals (`if`, `elif`, `else`)
 Used to run code based on whether a condition is `True` or `False`.
