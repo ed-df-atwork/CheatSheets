@@ -1,35 +1,30 @@
-# Data Professional Cheat Sheets
+# Data Analyst’s Modern Cheat Sheets (2026 Edition) 📊
 
-This repository serves as a centralized collection of comprehensive cheat sheets for Data Analysts and Data Engineers. It is designed to provide quick-reference guides for syntax, best practices, and core concepts across the modern data stack.
+A collection of high-impact, scannable guides designed for the modern data workflow. This repository bridges the gap between raw technical syntax and high-level business strategy, covering everything from AI-assisted SQL to cloud infrastructure performance.
 
-## Data Analysis
+## 📂 Repository Structure
 
-### [SQL Reference](./SQL/)
-This section covers essential and advanced database querying techniques. Content includes fundamental syntax, complex joins, window functions, and common table expressions (CTEs). Advanced topics such as stored procedures, performance tuning, and indexing strategies are also documented to assist in optimizing query execution and reporting workflows.
 
-### [Python for Data Science](./Python/)
-A collection of guides focusing on data manipulation, analysis, and visualization. Topics range from core Python structures and file I/O to heavy-hitting libraries like Pandas and NumPy. It also includes references for data cleaning workflows, regex patterns, and integrating Python with SQL databases.
+| Category | File | Description |
+| :--- | :--- | :--- |
+| **Strategy** | `Business Analysis.md` | KPI frameworks, North Star metrics, and ROI-driven analysis. |
+| **Intelligence** | `AI-Powered Analytics & Prompting.md` | R-O-C-E framework, LLM-assisted SQL debugging, and synthetic data. |
+| **Viz Ops** | `SQL Optimization for Tableau Performance.md` | Query tuning, indexing, and reducing dashboard latency. |
+| **Infrastructure** | `Modern Data Infrastructure.md` | Analytics engineering basics (dbt), data modeling, and cloud architecture. |
+| **Deployment** | `Server Deployment & Version Management.md` | Git workflows, CI/CD for data, and production environment stability. |
+| **Next-Gen Notebooks** | `Marimo.md` | Reactive Python notebooks using `uv` and `marimo` for reproducible research. |
 
-### Statistics and Math
-Summary of mathematical foundations required for data interpretation. This includes descriptive statistics, probability distributions, hypothesis testing, and the fundamentals of regression analysis to ensure rigorous analytical results.
+## 🛠️ Key Themes
+- **AI-First Workflow**: Moving beyond manual coding by using LLMs as a "thinking partner."
+- **Efficiency**: Leveraging `uv` for lightning-fast Python package management and `marimo` for interactive data apps.
+- **Business Impact**: Shifting focus from "building charts" to "driving decisions" via structured frameworks.
+- **Performance**: Deep dives into Snowflake, BigQuery, and Tableau connectivity.
 
-### Business Intelligence Tools
-Best practices and syntax for major BI platforms. Focuses on Tableau calculations (LOD expressions) and Power BI development using DAX and Power Query (M) to build interactive and scalable dashboards.
+## 🚀 How to Use
+These sheets are formatted in **Markdown** for easy integration into Obsidian, Notion, or GitHub Wikis. Each sheet includes:
+1.  **Core Concepts**: The "why" behind the technique.
+2.  **Code Blocks**: Copy-pasteable snippets for SQL, Python, and CLI.
+3.  **Checklists**: Quick "sanity checks" before you ship your analysis.
 
-## Data Engineering
-
-### Programming and Scripting
-Advanced scripting concepts tailored for data automation. Topics cover Python-specific patterns like generators and decorators, alongside Bash/Shell scripting for file system manipulation and automation.
-
-### Databases and Storage
-Architectural references for data persistence. Coverage includes relational data modeling (Star and Snowflake schemas), normalization principles, NoSQL database types, and the nuances of cloud data warehousing platforms like Snowflake and BigQuery.
-
-### Big Data and Processing
-Documentation on distributed computing and stream processing. This includes Apache Spark (PySpark), Hadoop ecosystems, and real-time data ingestion with Kafka.
-
-### Orchestration and Workflow
-Guides for managing complex data pipelines and environments. Includes syntax for Apache Airflow DAGs, dbt modeling and testing, and containerization strategies using Docker.
-
-### Cloud and DevOps
-References for deploying and maintaining data infrastructure. This covers core service mappings across AWS, Azure, and GCP, as well as version control with Git and implementing CI/CD pipelines for data products.
-
+---
+*Last updated: March 2026*
