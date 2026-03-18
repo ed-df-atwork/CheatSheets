@@ -1,58 +1,129 @@
-# 🍃 marimo Cheat Sheet
+# marimo Cheat Sheet: Reactive Python Notebooks
 
-A quick reference for [marimo](https://marimo.io), the reactive, git-friendly Python notebook.
+### 1. Installation & Getting Started
+`marimo` is a reactive notebook that stores everything as a pure Python (`.py`) file.
 
-## 🚀 CLI Commands
+```bash
+# Install marimo
+pip install marimo
 
+# Create a new notebook or edit an existing one
+marimo edit
 
-| Command | Description |
-| :--- | :--- |
-| `pip install marimo` | Install marimo via pip |
-| `marimo edit` | Create a new notebook or open the editor |
-| `marimo edit notebook.py` | Edit an existing notebook file |
-| `marimo run notebook.py` | Run a notebook as a read-only web app |
-| `marimo tutorial intro` | Launch the interactive introductory tutorial |
-| `marimo convert notebook.ipynb -o notebook.py` | Convert a Jupyter notebook to marimo |
-| `marimo new "prompt"` | Generate a new notebook using AI (requires API key) |
+# Edit a specific file
+marimo edit notebook.py
 
-## 📦 Core Library (`import marimo as mo`)
+# Run a notebook as a shared web app
+marimo run notebook.py
 
-### 📝 Markdown & Layouts
+# Convert a Jupyter notebook to marimo
+marimo convert your_notebook.ipynb > notebook.py
+```
 
-| Feature | Syntax |
-| :--- | :--- |
-| **Markdown** | `mo.md("# Hello World")` |
-| **Interpolation** | `mo.md(f"The value is {my_var}")` |
-| **Latex** | `mo.md(r"$\sigma = \sqrt{\mu}$")` |
-| **Columns** | `mo.hstack([item1, item2])` |
-| **Rows** | `mo.vstack([item1, item2])` |
-| **Tabs** | `mo.tabs({"Tab 1": content1, "Tab 2": content2})` |
+---
 
-### 🎛️ UI Elements (Reactive Inputs)
-*Capture values by assigning them: `slider = mo.ui.slider(0, 100)`*
+### 2. Basic Markdown & Layout
+Use `mo.md` to create rich text. You can interpolate Python variables directly into the strings.
 
+```python
+import marimo as mo
 
-| Element | Syntax |
-| :--- | :--- |
-| **Slider** | `mo.ui.slider(start, stop, step=1, label="...")` |
-| **Button** | `mo.ui.run_button(label="Submit")` |
-| **Text Input** | `mo.ui.text(label="Name", placeholder="...")` |
-| **Dropdown** | `mo.ui.dropdown(options=["A", "B"], label="...")` |
-| **Checkbox** | `mo.ui.checkbox(label="Enable feature")` |
-| **Data Table** | `mo.ui.table(data, pagination=True)` |
+# Basic Markdown
+mo.md("# Hello Marimo!")
 
-## ⌨️ Useful Hotkeys (Editor)
+# Dynamic Markdown with Python variables
+name = "User"
+mo.md(f"Welcome back, **{name}**!")
 
+# Layout: Horizontal and Vertical stacks
+mo.hstack([
+    mo.md("Left Column"),
+    mo.md("Right Column")
+])
 
-| Shortcut | Action |
-| :--- | :--- |
-| `Ctrl/Cmd + Enter` | Run the current cell |
-| `Esc + M` | Convert cell to Markdown |
-| `Esc + Y` | Convert cell to Python Code |
-| `Ctrl/Cmd + Shift + H` | Open hotkey help menu |
-| `Ctrl + Esc` | Enter Vim command mode (if enabled) |
+mo.vstack([
+    mo.md("Top Row"),
+    mo.md("Bottom Row")
+])
+```
 
-## 💡 Key Concepts
-*   **Reactive Execution**: Changing a variable in one cell automatically triggers updates in all cells that reference it.
-*   **Pure Python**: Notebooks are saved as standard `.py` files, making them easy to version control with Git.
-*   **No Hidden State**: Deleting a cell also deletes its variables from memory, preventing "stale" state bugs.
+---
+
+### 3. Interactive UI Elements
+Marimo's reactivity means when you move a slider, all dependent cells automatically update.
+
+```python
+# Sliders and Numeric Inputs
+slider = mo.ui.slider(start=0, stop=100, value=50, label="Select Value")
+
+# Text and Dropdowns
+text_input = mo.ui.text(label="Enter Name")
+dropdown = mo.ui.dropdown(options=["Option A", "Option B"], label="Choose")
+
+# Accessing values (reactive)
+mo.md(f"The slider is at: {slider.value}")
+
+# Displaying elements (must be the last line in a cell to show)
+mo.hstack([slider, text_input, dropdown])
+```
+
+---
+
+### 4. Data & Tables
+Built-in tools for exploring DataFrames and structured data.
+
+```python
+import pandas as pd
+df = pd.read_csv("data.csv")
+
+# Interactive Table (allows sorting/filtering)
+table = mo.ui.table(df, selection="multiple")
+
+# Get selected rows from the table
+selected_data = table.value
+
+# Dataframe Transformer (GUI for cleaning data)
+transformer = mo.ui.dataframe_transformer(df)
+```
+
+---
+
+### 5. Media & Plots
+Displaying images, plots, and other media types.
+
+```python
+# Displaying Plots (Matplotlib/Seaborn/Plotly)
+import matplotlib.pyplot as plt
+plt.plot([1, 2, 3], [4, 5, 6])
+mo.as_html(plt.gca()) # Wrap plots for best rendering
+
+# Images and Audio
+mo.image("path/to/image.png", width=200)
+mo.audio("path/to/audio.mp3")
+
+# Mermaid Diagrams
+mo.mermaid('''
+graph TD
+    A[Start] --> B{Is it reactive?}
+    B -- Yes --> C[Use marimo]
+    B -- No --> D[Use Jupyter]
+''')
+```
+
+---
+
+### 6. Control Flow & Utility
+Tools to manage the reactive execution of your notebook.
+
+```python
+# Stop execution if a condition is met
+mo.stop(slider.value == 0, "Please move the slider to continue.")
+
+# Display a status spinner for long tasks
+with mo.status.spinner(title="Calculating..."):
+    # Expensive code here
+    pass
+
+# Display statistics
+mo.stat(value="98%", label="Accuracy", caption="Model Performance")
+```
