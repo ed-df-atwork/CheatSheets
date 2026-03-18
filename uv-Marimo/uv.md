@@ -1,49 +1,100 @@
-# ⚡ uv Cheat Sheet
+# uv Cheat Sheet: Python Packaging & Project Management
 
-A quick reference for [uv](https://github.com/astral-sh/uv), the extremely fast Python package and project manager.
+### 1. Project Management
+`uv` replaces `pip`, `poetry`, and `pyenv` with a single fast tool.
 
-## 🚀 Getting Started
+```bash
+# Initialize a new project
+uv init my-project            # Creates pyproject.toml and basic structure
+cd my-project
 
-| Command | Description |
-| :--- | :--- |
-| `uv init` | Initialize a new Python project (creates `pyproject.toml`) |
-| `uv init --python 3.12` | Initialize with a specific Python version |
-| `uv sync` | Install all dependencies and sync the virtual environment |
-| `uv lock` | Create or update the `uv.lock` file |
+# Add and remove dependencies
+uv add requests               # Adds to [project.dependencies] and installs
+uv add --dev pytest           # Adds to [tool.uv.dev-dependencies]
+uv remove requests            # Removes dependency and updates lockfile
 
-## 📦 Dependency Management
+# Synchronize the environment
+uv sync                       # Installs all deps and updates uv.lock
+```
 
-| Command | Description |
-| :--- | :--- |
-| `uv add <pkg>` | Add a package to project dependencies |
-| `uv add --dev <pkg>` | Add a package as a development dependency |
-| `uv remove <pkg>` | Remove a package from the project |
-| `uv add -r requirements.txt` | Import dependencies from a requirements file |
-| `uv tree` | View the dependency tree for the current project |
+---
 
-## 🛠️ Running Code & Tools
+### 2. Running Scripts & Commands
+Execute code in managed environments without manual activation.
 
-| Command | Description |
-| :--- | :--- |
-| `uv run <script.py>` | Run a script in the project's virtual environment |
-| `uv run <command>` | Execute a command (e.g., `uv run pytest`) |
-| `uvx <tool>` | Run a tool in an ephemeral environment (alias for `uv tool run`) |
-| `uv tool install <pkg>` | Install a Python tool globally in an isolated environment |
+```bash
+# Run a script with project dependencies
+uv run main.py
 
-## 🐍 Python Version Management
+# Run a command inside the virtual environment
+uv run -- python --version
 
-| Command | Description |
-| :--- | :--- |
-| `uv python list` | List available Python versions |
-| `uv python install 3.11` | Install a specific Python version |
-| `uv python pin 3.10` | Pin the current project to a specific Python version |
+# Run a script with temporary dependencies (no project needed)
+uv run --with requests --with pandas script.py
 
-## 🔧 Pip-Compatible Interface
-*Use these if you need a drop-in replacement for standard `pip` commands.*
+# Run a tool from PyPI without installing it
+uvx ruff check .              # Executes 'ruff' in a temporary environment
+```
 
-| Command | Description |
-| :--- | :--- |
-| `uv pip install <pkg>` | Install a package into the active environment |
-| `uv pip compile reqs.in` | Compile a requirements file (replaces `pip-compile`) |
-| `uv pip sync reqs.txt` | Sync environment with a requirements file |
-| `uv venv` | Create a new virtual environment |
+---
+
+### 3. Python Version Management
+`uv` automatically downloads and manages Python versions.
+
+```bash
+# List available and installed Python versions
+uv python list
+
+# Install a specific version
+uv python install 3.12
+
+# Pin the current project to a version
+uv python pin 3.11            # Creates .python-version file
+```
+
+---
+
+### 4. Tool Management (`pipx` replacement)
+Install and manage global CLI tools.
+
+```bash
+# Install a tool globally
+uv tool install ruff
+
+# List installed tools
+uv tool list
+
+# Upgrade a tool or all tools
+uv tool upgrade ruff
+uv tool upgrade --all
+
+# Uninstall a tool
+uv tool uninstall ruff
+```
+
+---
+
+### 5. `pip` Compatible Interface
+For those who prefer the familiar `pip` syntax with 10-100x speed.
+
+```bash
+# Basic package management
+uv pip install -r requirements.txt
+uv pip install flask
+uv pip freeze > requirements.txt
+
+# Inspecting environment
+uv pip list                   # List installed packages
+uv pip tree                   # View dependency tree
+uv pip show requests          # Show package details
+```
+
+---
+
+### 6. Maintenance & Cache
+```bash
+# View and clean the global cache
+uv cache dir                  # Show cache location
+uv cache prune                # Remove unused cache entries
+uv cache clean                # Clear entire cache
+```
