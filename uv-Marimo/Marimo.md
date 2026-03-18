@@ -1,45 +1,58 @@
-### marimo Cheat Sheet
+# 🍃 marimo Cheat Sheet
 
-#### Getting Started (with uv)
+A quick reference for [marimo](https://marimo.io), the reactive, git-friendly Python notebook.
 
-| Task | Command |
+## 🚀 CLI Commands
+
+
+| Command | Description |
 | :--- | :--- |
-| Run/Edit a notebook | `uvx marimo edit` |
-| Create new notebook | `uvx marimo edit notebook.py` |
-| Run in Sandbox mode | `uvx marimo edit --sandbox notebook.py` |
-| Convert Jupyter (.ipynb) | `uvx marimo convert old.ipynb > new.py` |
-| Run as read-only App | `uvx marimo run notebook.py` |
+| `pip install marimo` | Install marimo via pip |
+| `marimo edit` | Create a new notebook or open the editor |
+| `marimo edit notebook.py` | Edit an existing notebook file |
+| `marimo run notebook.py` | Run a notebook as a read-only web app |
+| `marimo tutorial intro` | Launch the interactive introductory tutorial |
+| `marimo convert notebook.ipynb -o notebook.py` | Convert a Jupyter notebook to marimo |
+| `marimo new "prompt"` | Generate a new notebook using AI (requires API key) |
 
-#### Dependency Management (PEP 723)
+## 📦 Core Library (`import marimo as mo`)
 
-| Task | Command |
+### 📝 Markdown & Layouts
+
+| Feature | Syntax |
 | :--- | :--- |
-| Add package to notebook | `uv add --script notebook.py <package>` |
-| Remove package from notebook | `uv remove --script notebook.py <package>` |
-| Run notebook as script | `uv run notebook.py` |
+| **Markdown** | `mo.md("# Hello World")` |
+| **Interpolation** | `mo.md(f"The value is {my_var}")` |
+| **Latex** | `mo.md(r"$\sigma = \sqrt{\mu}$")` |
+| **Columns** | `mo.hstack([item1, item2])` |
+| **Rows** | `mo.vstack([item1, item2])` |
+| **Tabs** | `mo.tabs({"Tab 1": content1, "Tab 2": content2})` |
 
-#### UI Shortcuts
+### 🎛️ UI Elements (Reactive Inputs)
+*Capture values by assigning them: `slider = mo.ui.slider(0, 100)`*
 
-| Action | Shortcut |
+
+| Element | Syntax |
 | :--- | :--- |
-| Run Cell | `Cmd/Ctrl + Enter` |
-| Create Cell Above | `A` (in command mode) |
-| Create Cell Below | `B` (in command mode) |
-| Delete Cell | `D, D` |
-| Toggle Code/UI | `Cmd/Ctrl + .` |
-| Search/Command Palette | `Cmd/Ctrl + Shift + P` |
+| **Slider** | `mo.ui.slider(start, stop, step=1, label="...")` |
+| **Button** | `mo.ui.run_button(label="Submit")` |
+| **Text Input** | `mo.ui.text(label="Name", placeholder="...")` |
+| **Dropdown** | `mo.ui.dropdown(options=["A", "B"], label="...")` |
+| **Checkbox** | `mo.ui.checkbox(label="Enable feature")` |
+| **Data Table** | `mo.ui.table(data, pagination=True)` |
 
-#### Basic Code Snippets
-```python
-import marimo as mo
+## ⌨️ Useful Hotkeys (Editor)
 
-# Layout
-mo.vstack([item1, item2])
-mo.hstack([item1, item2])
 
-# UI Elements
-slider = mo.ui.slider(1, 10, label="Value")
-text = mo.ui.text(label="Name")
+| Shortcut | Action |
+| :--- | :--- |
+| `Ctrl/Cmd + Enter` | Run the current cell |
+| `Esc + M` | Convert cell to Markdown |
+| `Esc + Y` | Convert cell to Python Code |
+| `Ctrl/Cmd + Shift + H` | Open hotkey help menu |
+| `Ctrl + Esc` | Enter Vim command mode (if enabled) |
 
-# Output
-mo.md(f"The value is {slider.value}")
+## 💡 Key Concepts
+*   **Reactive Execution**: Changing a variable in one cell automatically triggers updates in all cells that reference it.
+*   **Pure Python**: Notebooks are saved as standard `.py` files, making them easy to version control with Git.
+*   **No Hidden State**: Deleting a cell also deletes its variables from memory, preventing "stale" state bugs.
