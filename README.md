@@ -1,6 +1,4 @@
-# Data Analyst Cheat Sheets 📊
-
-## 📂 Repository Overview
+# 📂 Repository Overview
 
 ### 🏛️ Business Analysis
 *Focused on moving from "data person" to "business partner."*
