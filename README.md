@@ -1,4 +1,4 @@
-# 🚀 Usage
+# :computer: Usage
 These sheets are optimized for **Markdown** readers (Obsidian, Notion, GitHub). 
 1. **Search**: Use `Ctrl+F` within the directories to find specific functions.
 2. **Copy/Paste**: All code blocks are pre-formatted for immediate use in your IDE or Console.
