@@ -1,7 +1,7 @@
 # Narrative & Executive Summaries — Dashboard-to-Story Cheat Sheet
 
 ## 1. Executive Summary Framework: Strategic (CARE)
-Use this structure to prompt an AI (ChatGPT, Claude, etc.) to translate data into "Business English."
+Use this structure to prompt an AI to translate complex dashboard data into "Business English."
 
 
 | Letter | Component | Description | Example |
@@ -14,7 +14,7 @@ Use this structure to prompt an AI (ChatGPT, Claude, etc.) to translate data int
 ---
 
 ## 2. Converting Dashboard Data to Narrative
-Don't just paste an image; paste the **summary statistics** or the **CSV export** for the best results.
+Don't just paste an image; paste the **summary statistics** or a **CSV export** for the best results.
 
 ### The "Data-to-Narrative" Prompt Pattern:
 > "Analyze the following data from my Tableau dashboard. Provide a **One-Page Executive Summary** that answers: 
@@ -35,12 +35,33 @@ Executives care about the **implication**, not just the observation.
 
 ---
 
-## 4. Refining the Tone & Style
+## 4. Technical Prompting for Summaries (CODE Framework)
+Use this when you need the AI to analyze a specific file or data block.
+
+```text
+TASK: Generate an Executive Summary from the attached performance report.
+OBJECTIVE: Highlight why the 'Churn' metric deviated from the 2% target.
+CONTEXT: We recently changed our subscription pricing model in January.
+FORMAT: 
+- BLUF (Bottom Line Up Front)
+- 3 Bulleted Key Findings
+- 1 Recommended Action
+- Limit to 250 words total.
+```
+
+---
+
+## 5. Refining the Tone & Style
 *   **The "Inverted Pyramid":** Tell the AI to put the most important conclusion in the first sentence.
 *   **The "BLUF" Method:** Ask for a **Bottom Line Up Front** section.
 *   **Constraint Prompting:** "Explain this as if I have only 60 seconds to read it."
+*   **Persona:** "Act as a Strategic Consultant for a Fortune 500 company."
 
-```text
-PROMPT: "Act as a Strategic Consultant. Summarize the attached performance data. 
-Focus on the 'Why' behind the variances. Use the BLUF method. 
-Limit the entire response to 250 words. No fluff."
+---
+
+## 6. Executive Summary Checklist
+- [ ] **Clarity:** Did the AI remove technical jargon (e.g., "P-Value," "Standard Deviation")?
+- [ ] **Accuracy:** Did I manually verify that the AI didn't "hallucinate" any numbers?
+- [ ] **Actionable:** Does the summary end with a specific recommendation?
+- [ ] **Brevity:** Is the summary truly "one-page" or "one-slide" compatible?
+- [ ] **Alignment:** Does the summary answer the original business question?
