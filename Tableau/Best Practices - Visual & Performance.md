@@ -1,4 +1,4 @@
-# Tableau & SQL Performance: The Ultimate Optimization Guide
+# Best Practices - Visual & Performance.md
 
 Combining visual design best practices with high-performance SQL data modeling to create fast, insightful dashboards.
 
