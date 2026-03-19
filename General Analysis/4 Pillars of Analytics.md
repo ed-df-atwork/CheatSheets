@@ -1,4 +1,16 @@
-# Deep Dive: How to Perform the 4 Pillars of Analytics
+# The 4 Pillars of Analytics — The Data Maturity Model
+
+## Overview of the 4 Pillars
+This framework represents the journey from raw data to optimized business decisions. Each pillar builds on the previous one, increasing in both **complexity** and **business value**.
+
+| Pillar | Focus | Question | Complexity | Value |
+| :--- | :--- | :--- | :--- | :--- |
+| **Descriptive** | Hindsight | **What happened?** | Low | Low |
+| **Diagnostic** | Insight | **Why did it happen?** | Medium | Medium |
+| **Predictive** | Foresight | **What will happen?** | High | High |
+| **Prescriptive** | Optimization | **How can we make it happen?** | Very High | Strategic |
+
+---
 
 ## Pillar 1: Descriptive Analytics (What happened?)
 **The Goal:** Summarize raw data into a coherent "Current State" narrative.
