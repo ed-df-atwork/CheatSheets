@@ -1,16 +1,16 @@
-# PEP 8 — The Style Guide for Python Code
+# PEP 8 — The Style Guide for Python Code (Complete)
 
-## 1. Indentation & Tabs
-* **Indent:** Use 4 spaces per level.
-* **Tabs or Spaces?:** Spaces are preferred.
-* **Maximum Line Length:** Limit to 79 characters.
+## 1. Indentation, Tabs & Line Length
+* **Indent:** Use **4 spaces** per level. Never mix tabs and spaces.
+* **Maximum Line Length:** Limit code to **79 characters**; docstrings/comments to **72**.
+* **Hanging Indents:** Continuation lines should align elements vertically or use a 4-space indent.
 
 ```python
-# Good: Aligned with opening delimiter
+# Vertical alignment
 foo = long_function_name(var_one, var_two,
                          var_three, var_four)
 
-# Good: Extra indentation to distinguish from body
+# Hanging indent (extra level to distinguish from body)
 def long_function_name(
         var_one, var_two, var_three,
         var_four):
@@ -18,7 +18,7 @@ def long_function_name(
 ```
 
 ## 2. Imports
-* Group imports: Standard library, Third-party, then Local.
+* Group imports: Standard library, Third-party, then Local. Use absolute imports.
 
 ```python
 import os
@@ -33,16 +33,17 @@ from my_package import my_module
 ```
 
 ## 3. Whitespace & Operators
-* Always surround binary operators with a single space.
-* Don't use spaces around `=` for keyword arguments.
+* Surround binary operators (`=`, `+`, `-`, `==`, `!=`, `in`, `is`, `and`, `or`) with one space.
+* **Exceptions:** No spaces around `=` for keyword arguments or default parameter values.
+* **Line Breaks:** Break *before* binary operators.
 
 ```python
-# Good
-x = y + 1
-i = i + 1
-submitted += 1
+# Good: Operator alignment
+income = (gross_wages
+          + taxable_interest
+          - ira_deduction)
 
-# Good (Keyword arguments)
+# Good: Keyword arguments
 def complex_func(real, imag=0.0):
     return magic(r=real, i=imag)
 ```
@@ -52,39 +53,33 @@ def complex_func(real, imag=0.0):
 
 | Entity | Convention | Example |
 | :--- | :--- | :--- |
-| **Packages** | lowercase | `requests` |
-| **Classes** | CapWords | `MyClass` |
-| **Functions** | snake_case | `calculate_total()` |
-| **Constants** | ALL_CAPS | `MAX_TIMEOUT` |
-
-```python
-class UserProfile:
-    pass
-
-def calculate_total_price(item_count):
-    total_cost = item_count * 1.5
-    return total_cost
-
-MAX_RETRY_ATTEMPTS = 5
-```
+| **Packages** | short, lowercase, no underscores | `mypackage` |
+| **Modules** | lowercase, underscores allowed | `my_module` |
+| **Classes** | CapWords (PascalCase) | `UserProfile` |
+| **Functions / Variables** | lowercase_with_underscores | `calculate_total()` |
+| **Constants** | ALL_CAPS_WITH_UNDERSCORES | `MAX_TIMEOUT` |
+| **Exceptions** | CapWords with "Error" suffix | `ConnectionError` |
 
 ## 5. Programming Recommendations
+* **Singletons:** Always use `is` or `is not` for `None`.
+* **Booleans:** Use truthiness for sequences (strings, lists).
+* **String Methods:** Use `.startswith()` and `.endswith()` instead of slicing.
 
 ```python
-# Use 'is' or 'is not' for None
+# Good
 if x is None:
     pass
 
-# Use truthiness for empty sequences
 if not my_list:
     print("List is empty")
 
-# Use .startswith() and .endswith()
 if name.startswith('Py'):
     pass
 ```
 
 ## 6. Comments & Docstrings
+* **Docstrings:** Use `"""Triple Double Quotes"""`.
+* **Inline Comments:** Separate from code by at least two spaces.
 
 ```python
 def get_user_id(username):
@@ -97,4 +92,19 @@ def get_user_id(username):
     """
     user_id = db.fetch(username)  # Inline comment
     return user_id
+```
+
+## 7. Closing Braces
+* Closing braces can align with the first non-whitespace character of the last line or the first character of the starting line.
+
+```python
+# Option 1
+my_list = [
+    1, 2, 3,
+    ]
+
+# Option 2
+my_list = [
+    1, 2, 3,
+]
 ```
