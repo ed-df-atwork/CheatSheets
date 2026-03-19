@@ -1,44 +1,100 @@
 # PEP 8 — The Style Guide for Python Code
 
 ## 1. Indentation & Tabs
-*   **Indent:** Use **4 spaces** per indentation level.
-*   **Tabs or Spaces?:** Spaces are preferred. Never mix them.
-*   **Maximum Line Length:** Limit all lines to a maximum of **79 characters**.
+* **Indent:** Use 4 spaces per level.
+* **Tabs or Spaces?:** Spaces are preferred.
+* **Maximum Line Length:** Limit to 79 characters.
 
-## 2. Blank Lines
-*   **Top-level functions/classes:** Surround with **two** blank lines.
-*   **Method definitions inside a class:** Surround with **one** blank line.
-*   **Inside functions:** Use sparingly to separate logical sections.
+```python
+# Good: Aligned with opening delimiter
+foo = long_function_name(var_one, var_two,
+                         var_three, var_four)
 
-## 3. Imports
-*   **Standard Library** imports first.
-*   **Related Third-party** imports second.
-*   **Local Application** imports last.
-*   *Note: Use absolute imports or explicit relative imports.*
+# Good: Extra indentation to distinguish from body
+def long_function_name(
+        var_one, var_two, var_three,
+        var_four):
+    print(var_one)
+```
 
-## 4. Whitespace in Expressions
-*   **Avoid** extra spaces inside parentheses, brackets, or braces: `(spam[1], {eggs: 2})`.
-*   **Avoid** space before a comma, semicolon, or colon.
-*   **Always** surround these binary operators with a single space on either side:
-    *   Assignment (`=`), augmented assignment (`+=`, `-=`), comparisons (`==`, `<`, `>`, `!=`), Booleans (`and`, `or`, `not`).
+## 2. Imports
+* Group imports: Standard library, Third-party, then Local.
 
-## 5. Naming Conventions
+```python
+import os
+import sys
+
+# Third-party
+import flask
+import pandas as pd
+
+# Local
+from my_package import my_module
+```
+
+## 3. Whitespace & Operators
+* Always surround binary operators with a single space.
+* Don't use spaces around `=` for keyword arguments.
+
+```python
+# Good
+x = y + 1
+i = i + 1
+submitted += 1
+
+# Good (Keyword arguments)
+def complex_func(real, imag=0.0):
+    return magic(r=real, i=imag)
+```
+
+## 4. Naming Conventions
+
 
 | Entity | Convention | Example |
 | :--- | :--- | :--- |
-| **Packages / Modules** | Short, all lowercase | `requests`, `my_module` |
-| **Classes** | CapWords (PascalCase) | `MyClass` |
-| **Functions / Variables** | lowercase_with_underscores | `calculate_total()` |
-| **Constants** | ALL_CAPS_WITH_UNDERSCORES | `MAX_TIMEOUT` |
-| **Methods** | lowercase_with_underscores | `get_data(self)` |
-| **Private Internal** | Leading underscore | `_internal_var` |
+| **Packages** | lowercase | `requests` |
+| **Classes** | CapWords | `MyClass` |
+| **Functions** | snake_case | `calculate_total()` |
+| **Constants** | ALL_CAPS | `MAX_TIMEOUT` |
 
-## 6. Comments
-*   **Block comments:** Indented to the same level as the code.
-*   **Inline comments:** Use sparingly. Separate from code by at least two spaces.
-*   **Docstrings:** Use `"""Triple Double Quotes"""` for all public modules, functions, classes, and methods.
+```python
+class UserProfile:
+    pass
 
-## 7. Programming Recommendations
-*   **Comparisons to Singletons:** Always use `is` or `is not`, never the equality operators (e.g., `if x is None:`).
-*   **Boolean checks:** Use `if my_list:` instead of `if len(my_list) > 0:`.
-*   **String starts/ends:** Use `''.startswith()` and `''.endswith()` instead of string slicing.
+def calculate_total_price(item_count):
+    total_cost = item_count * 1.5
+    return total_cost
+
+MAX_RETRY_ATTEMPTS = 5
+```
+
+## 5. Programming Recommendations
+
+```python
+# Use 'is' or 'is not' for None
+if x is None:
+    pass
+
+# Use truthiness for empty sequences
+if not my_list:
+    print("List is empty")
+
+# Use .startswith() and .endswith()
+if name.startswith('Py'):
+    pass
+```
+
+## 6. Comments & Docstrings
+
+```python
+def get_user_id(username):
+    """Retrieve the unique ID for a given username.
+    
+    Args:
+        username (str): The name to lookup.
+    Returns:
+        int: The user's ID.
+    """
+    user_id = db.fetch(username)  # Inline comment
+    return user_id
+```
