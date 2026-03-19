@@ -28,3 +28,35 @@ Ensure your calculations don't break when data is missing.
 
 ### 3. Ad-Hoc Calculations
 *   **The Trick:** Double-click any empty space on the **Rows**, **Columns**, or **Marks** shelf to type a formula directly (e.g., `SUM([Sales]) * 1.1`) without creating a named field in the data pane.
+
+
+### 4. Ranking Functions
+Tableau offers different ways to rank data; choosing the right one matters for ties.
+*   **RANK:** Standard (1, 2, 2, 4).
+*   **RANK_DENSE:** No gaps (1, 2, 2, 3).
+*   **RANK_UNIQUE:** Forces a unique rank even if values are identical (1, 2, 3, 4).
+    ```sql
+    RANK(SUM([Sales]), 'desc')
+    ```
+
+### 5. Window Functions (Moving Averages)
+Used to "smooth out" volatile data trends.
+*   **Moving Average:** Calculates the average of the current row and a specified number of previous/following rows.
+    ```sql
+    // Average of the last 6 months
+    WINDOW_AVG(SUM([Sales]), -6, 0)
+    ```
+
+### 6. Lookup & Offset (YoY/MoM)
+Access values from other rows in the view without using complex joins.
+*   **LOOKUP:** Grab a value from a previous period.
+    ```sql
+    // Difference from previous month
+    SUM([Sales]) - LOOKUP(SUM([Sales]), -1)
+    ```
+
+### 7. Running Totals
+*   **RUNNING_SUM:** Accumulates values across the view (e.g., "Pacing toward goal").
+    ```sql
+    RUNNING_SUM(SUM([Sales]))
+    ```
