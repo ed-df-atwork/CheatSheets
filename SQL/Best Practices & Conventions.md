@@ -57,7 +57,7 @@ INNER JOIN users AS u
 ```
 
 ## 5. Filtering & Logic
-*   **Alignment:** Align `AND` and `OR` logical operators under the `WHERE` clause.
+*   **Alignment:** Indent `AND` and `OR` logical operators under the `WHERE` clause.
 *   **In-Lists:** When using `IN` with many values, put them on separate indented lines.
 
 ```sql
@@ -65,11 +65,11 @@ INNER JOIN users AS u
 SELECT product_name
 FROM products
 WHERE category_id IN (
-    101,
-    102,
-    103
-)
-AND price < 50.00;
+        101,
+        102,
+        103
+    )
+    AND price < 50.00;
 ```
 
 ## 6. Common Table Expressions (CTEs)
