@@ -76,23 +76,3 @@ Tableau is metadata-heavy; every extra column adds "weight."
 *   **The "So What?":** Every chart should have a headline that explains the takeaway (e.g., instead of "Monthly Revenue," use "Revenue Increased 15% due to Holiday Promo").
 *   **Color Theory:** Use color to highlight the *exception*, not just to make it pretty.
 
-## 9. Analyst Soft Skills
-
-| Skill | Best Practice |
-| :--- | :--- |
-| **Skepticism** | If the data looks too good to be true, it’s probably a tracking bug. |
-| **Communication** | Translate "P-values" and "Standard Deviations" into "Business Risk" and "Confidence." |
-| **Curiosity** | Don't just report that sales are down; dig into *which* region or product is driving it. |
-| **Iteration** | Treat your first dashboard as a draft. Get user feedback early and often. |
-
-## 10. The "Analyst's Toolbox" Logic
-*   **Excel:** Best for quick "what-if" modeling and small, ad-hoc data cleaning.
-*   **SQL:** Best for large-scale data extraction and transformation (The Foundation).
-*   **Tableau/PowerBI:** Best for recurring, interactive storytelling and monitoring.
-*   **Python/R:** Best for advanced statistics, automation, and machine learning.
-
-## 11. Final Checklist before Presenting
-1. [ ] Did I double-check my totals against a known source?
-2. [ ] Are my axes labeled and do they start at zero (unless there's a reason not to)?
-3. [ ] Did I answer the original business question?
-4. [ ] Is the most important insight the biggest thing on the page?
