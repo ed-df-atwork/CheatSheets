@@ -1,113 +1,106 @@
-# GIT CHEAT SHEET
+# GIT Cheat Sheet
+
+## 1. Workflow Summary (GitLab Flow Inspired)
+This workflow uses dedicated branches for development, testing, and production to maintain stability.
+
+### Phase 1: Feature Development
+1.  **Branch off `develop`**: Create a descriptive branch (e.g., `feature/add-login`) from the latest `develop`.
+2.  **Commit Frequently**: Make small, logical commits. Use [Conventional Commits](#conventional-commit-prefixes).
+3.  **Push**: Push the feature branch to the remote repository for visibility.
+
+### Phase 2: Staging & UAT
+1.  **Merge to `develop`**: Manually merge the feature branch into `develop` for code reviews.
+2.  **Merge to `main`**: When features are ready for testing, merge `develop` into `main`.
+3.  **Automated UAT**: Merging to `main` triggers a `post-receive` hook for automatic UAT deployment.
+
+### Phase 3: Production & Cleanup
+1.  **Manual Production Deployment**: Run the PowerShell deployment script (requires manual confirmation).
+2.  **Cleanup**: Delete feature branches locally and remotely after a successful production push.
 
 ---
 
-## GIT BASICS
-> Essential commands to initialize and manage local projects.
-
-* **`git init <directory>`**
-  - Create empty Git repo in specified directory. Run with no arguments to initialize the current directory.
-* **`git clone <repo>`**
-  - Clone repo located at `<repo>` onto local machine (HTTP or SSH supported).
-* **`git status`**
-  - List which files are staged, unstaged, and untracked.
-* **`git add <file/directory>`**
-  - Stage all changes in `<directory>` for the next commit (or a specific `<file>`).
-* **`git commit -m "<message>"`**
-  - Commit the staged snapshot using `<message>` as the commit message (bypasses text editor).
-
----
-
-## GIT BRANCHES
-> Manage and merge development timelines.
-
-* **`git branch`**
-  - List all of the branches in your repo. Add a `<branch>` argument to create a new branch.
-* **`git checkout -b <branch>`**
-  - Create and check out a new branch named `<branch>`. Drop the `-b` flag to checkout an existing branch.
-* **`git merge <branch>`**
-  - Merge `<branch>` into the current branch.
-
----
-
-## REMOTE REPOSITORIES
-> Collaboration and synchronizing with remote servers.
-
-* **`git remote add <name> <url>`**
-  - Create new connection to remote repo using `<name>` as shortcut for `<url>`.
-* **`git fetch <remote> <branch>`**
-  - Fetches a specific `<branch>` from the repo. Leave off `<branch>` to fetch all remote refs.
-* **`git pull <remote>`**
-  - Fetch the specified remote’s copy of the current branch and immediately merge it into the local copy.
-* **`git push <remote> <branch>`**
-  - Push the branch to `<remote>`, along with necessary commits/objects. Creates named branch in the remote repo if it doesn’t exist.
-* **`git push <remote> --tags`**
-  - Sends all of your local tags to the remote repo (tags aren't pushed automatically).
-* **`git push <remote> --force`**
-  - Forces the git push even if it results in a non-fast-forward merge. Do not use unless you are absolutely sure you know what you’re doing!
-* **`git push <remote> --all`**
-  - Push all of your local branches to the specified remote.
-
----
-
-## UNDOING CHANGES & REWRITING HISTORY
-> Correcting mistakes or restructuring commits.
-
-* **`git reset <file>`**
-  - Remove `<file>` from the staging area (unstage), but leave the working directory unchanged.
-* **`git clean -n`**
-  - Shows which files would be removed from the working directory. Use the `-f` flag to execute the clean.
-* **`git revert <commit>`**
-  - Create new commit that undoes all of the changes made in `<commit>`, then apply it to the current branch.
-* **`git commit --amend`**
-  - Replace the last commit with the staged changes and last commit combined. Use with nothing staged to edit the last commit’s message.
-* **`git rebase <base>`**
-  - Rebase the current branch onto `<base>`. `<base>` can be a commit ID, branch name, tag, or relative reference to HEAD.
-* **`git rebase -i <base>`**
-  - Interactively rebase current branch onto `<base>`. Launches editor to enter commands for how each commit will be transferred.
-
----
-
-## GIT RESET MODES
-> Resetting the state of your repository.
+## 2. Conventional Commit Prefixes
+Use these prefixes to categorize your changes:
 
 
-
-| Command | Effect |
+| Prefix | Description |
 | :--- | :--- |
-| **`git reset`** | Reset staging area to match most recent commit, but leave the working directory unchanged. |
-| **`git reset --hard`** | Reset staging area and working directory to match most recent commit, overwriting all changes. |
-| **`git reset <commit>`** | Move the current branch tip backward to `<commit>`, reset the staging area to match, but leave the working directory alone. |
-| **`git reset --hard <commit>`** | Resets both the staging area & working directory, deleting uncommitted changes and all commits after `<commit>`. |
+| `feat:` | A new feature (e.g., `feat: add login validation`) |
+| `fix:` | A bug fix (e.g., `fix: resolve logout timeout`) |
+| `docs:` | Documentation only changes |
+| `refactor:` | Code change that neither fixes a bug nor adds a feature |
+| `test:` | Adding missing tests or correcting existing tests |
+| `chore:` | Updating build tasks, package manager configs, etc. |
 
 ---
 
-## GIT LOG (INSPECTION)
-> Reviewing the history of the project.
+## 3. Git Command Reference
 
-* **`git log --oneline`**
-  - Condense each commit to a single line.
-* **`git log --graph --decorate`**
-  - Draws a text based graph of commits on the left side and adds names of branches/tags.
-* **`git log --author="<pattern>"`**
-  - Search for commits by a particular author.
-* **`git log -<limit>`**
-  - Limit number of commits by `<limit>` (e.g., `git log -5`).
-* **`git log --grep="<pattern>"`**
-  - Search for commits with a commit message that matches `<pattern>`.
-
----
-
-## GIT CONFIG
-> System-wide and project-specific settings.
-
+### Basics & Configuration
 ```bash
-# Define user identity
-git config --global user.name <name>
-git config --global user.email <email>
+# Setup identity
+git config --global user.name "Your Name"
+git config --global user.email "mail@example.com"
 
-# Open global config for manual editing
-git config --global --edit
+# Initialize or Clone
+git init <directory>       # Create a new local repo
+git clone <url>            # Clone a remote repo
+git status                 # View staged/unstaged changes
+```
 
-# Create shortcuts/aliases
-git config --global alias.<alias-name> <git-command>
+### Branching & Merging
+```bash
+git branch                 # List branches
+git switch -c <name>       # Create and switch to new branch
+git switch <name>          # Switch to existing branch
+git merge <branch>         # Merge <branch> into current branch
+git branch -d <branch>     # Delete a merged local branch
+```
+
+### Remote Synchronization
+```bash
+git remote add <name> <url> # Link local to remote
+git fetch <remote>          # Download objects/refs from remote
+git pull <remote> <branch>  # Fetch and immediately merge
+git push -u origin <branch> # Push and set upstream tracking
+git push origin --delete <branch> # Delete remote branch
+git push <remote> --tags    # Push local tags to remote
+```
+
+### Undoing & Rewriting History
+```bash
+git add <file>             # Stage changes
+git commit -m "message"    # Commit staged changes
+git commit --amend         # Edit last commit or add staged changes to it
+git reset <file>           # Unstage <file>, keep workspace changes
+git revert <commit>        # Create a new commit that undoes <commit>
+git stash                  # Temporarily shelf uncommitted changes
+git stash pop              # Bring stashed changes back
+```
+
+---
+
+## 4. Reset Modes & Inspection
+
+
+| Command | Effect on Staging | Effect on Working Directory |
+| :--- | :--- | :--- |
+| `git reset` | Resets to match last commit | Changes are KEPT |
+| `git reset --hard` | Resets to match last commit | Changes are DELETED |
+| `git reset <commit>` | Resets to specific commit | Changes are KEPT |
+| `git reset --hard <commit>` | Resets to specific commit | Changes are DELETED |
+
+### Git Log (Inspection)
+*   **`git log --oneline`**: Condense history to single lines.
+*   **`git log --graph --decorate`**: Visual text-based branch graph.
+*   **`git log -<limit>`**: Show only the last N commits (e.g., `git log -5`).
+*   **`git log --grep="pattern"`**: Search commit messages for a pattern.
+
+---
+
+## 5. General Best Practices
+*   **Keep branches short-lived**: Focus on a single feature or fix per branch.
+*   **Pull frequently**: Reduce merge conflicts by staying updated with `develop`.
+*   **Review before merging**: Always test and review code before it hits `main`.
+*   **Never `push --force`**: Unless you are 100% sure and working on a private feature branch.
+*   **Use `.gitignore`**: Ensure `.env`, `node_modules`, and OS files (like `.DS_Store`) are never tracked.
