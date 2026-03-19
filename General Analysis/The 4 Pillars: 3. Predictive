@@ -26,3 +26,8 @@ model.fit(X_train, y_train)
 # Predict future values
 predictions = model.predict(X_test)
 ```
+
+## 4. Best Practices
+*   **Validation:** Never test your model on the same data you used to train it.
+*   **Feature Engineering:** The model is only as good as the inputs. Create meaningful variables (e.g., "Days since last purchase").
+*   **Acknowledge Uncertainty:** Provide a "Confidence Interval" (e.g., "Sales will be $10k +/- 5%").
