@@ -1,37 +1,62 @@
-# Tableau — Visual & Performance Best Practices
+# Tableau & SQL Performance: The Ultimate Optimization Guide
+
+Combining visual design best practices with high-performance SQL data modeling to create fast, insightful dashboards.
+
+---
 
 ## 1. Dashboard Design & Layout
-* **The 5-Second Rule:** A user should understand the main message or most critical KPI within five seconds of looking at the dashboard.
-* **Hierarchy (F-Pattern):** Place the most important high-level KPIs in the **top-left** corner, as Western audiences naturally scan in an "F" or "Z" pattern.
-* **BANs (Big Angry Numbers):** Use large, bold summary metrics at the top to provide immediate headlines before diving into charts.
-* **Limit Views:** Stick to **2–4 worksheets** per dashboard. Overcrowding obscures the "big picture".
-* **Fixed Sizing:** Use **fixed-size layouts** instead of "Automatic" to improve performance, as Tableau can reuse a single cached layout.
+*   **The 5-Second Rule:** Users should grasp the main KPI within five seconds.
+*   **Hierarchy (F-Pattern):** Place high-level KPIs in the **top-left** corner (natural scanning pattern).
+*   **BANs (Big Angry Numbers):** Use large, bold summary metrics at the top for immediate headlines.
+*   **Limit Views:** Stick to **2–4 worksheets** per dashboard to avoid overcrowding.
+*   **Fixed Sizing:** Use **fixed-size layouts** instead of "Automatic" so Tableau can reuse cached layouts.
 
-## 2. Visual Clarity (Data-Ink Ratio)
-* **Maximize Data-Ink:** Remove non-essential "chartjunk" like heavy borders, dark grid lines, and unnecessary tick marks.
-* **Color with Purpose:**
-    * Use a neutral base (gray/white) and save bright colors for highlighting key data or alerts.
-    * Limit your palette to **under 5 colors** to avoid "visual noise".
-    * Use intuitive associations: Red for "Hot/Negative," Blue/Green for "Cold/Positive".
-* **Simplify Tooltips:** Don't just list fields; rewrite them into clear, formatted sentences (e.g., "The total sales for [Region] were [Sales]").
+## 2. SQL Efficiency (The "Golden Rules")
+Tableau is metadata-heavy; every extra column adds "weight."
+*   **Never use `SELECT *`**: Only pull the columns needed for the dashboard.
+*   **Filter in the `WHERE` Clause**: Filter as close to the source as possible.
+*   **Avoid `ORDER BY`**: Tableau has its own sorting engine; don't make the DB do it twice.
+*   **Custom SQL vs. Views**: 
+    *   **Database Views (High Performance):** Recommended; pre-calculated logic handled by the DB.
+    *   **Custom SQL (Low Performance):** Avoid; Tableau wraps these in subqueries that can bypass DB indexes.
+*   **Union All:** Use `UNION ALL` instead of `UNION` to avoid the slow distinct-check process.
 
-## 3. Performance Optimization
-* **Extracts vs. Live:** Prioritize **Extracts (.hyper)** over Live connections for faster local querying and calculation materialization.
-* **Filter Efficiency:**
-    * Use **Extract Filters** or **Data Source Filters** to limit the data Tableau ever "sees".
-    * Use **Context Filters** sparingly to create a temporary results table that other filters run against.
-    * Avoid "Exclude" filters; they are slower to process than "Include" filters.
-* **Calculations:**
-    * Push complex logic to the **database level** (SQL/ETL) whenever possible.
-    * Use **Booleans or Integers** in calculations rather than Strings, as they are significantly faster to process.
-    * Use `MIN`/`MAX` instead of `ATTR` or `AVG` where possible to reduce computation load.
+## 3. Data Architecture & Aggregation
+*   **Aggregate at the Source:** If showing Monthly Sales, don't pull 100M raw rows. Aggregate in SQL first:
+    ```sql
+    -- FAST: Aggregating in SQL to reduce row count
+    SELECT DATE_TRUNC('month', transaction_date) as sale_month,
+           store_id, SUM(sale_amount) as total_sales
+    FROM sales_table GROUP BY 1, 2;
+    ```
+*   **Extracts over Live:** Use **Extracts (.hyper)** for faster querying and calculation materialization.
+*   **Hide Unused Fields:** Use "Hide All Unused Fields" in the Data Pane to shrink the extract size.
+*   **Join Optimization:** Join on **Integers** (IDs) rather than Strings. Use Tableau "Relationships" (Noodles) for Join Culling.
 
-## 4. Interactivity Best Practices
-* **Filter Actions:** Use Dashboard Actions instead of "Quick Filters" (drop-downs) to let users click marks to filter. This is more intuitive and faster to render.
-* **Guided Navigation:** Provide subtle instructions (e.g., "Click a region to drill down") to help users explore without getting lost.
-* **Parameters:** Use parameters to allow "What-If" scenarios or to let users swap between different measures/dimensions dynamically.
+## 4. Visual Clarity & Tooltips
+*   **Maximize Data-Ink:** Remove "chartjunk" (heavy borders, dark grid lines).
+*   **Color with Purpose:** Use neutral bases (gray/white) and limit palettes to **under 5 colors**.
+*   **Simplify Tooltips:** Rewrite tooltips into clear sentences (e.g., "The total sales for [Region] were [Sales]").
 
-## 5. Quick Development Shortcuts
+## 5. Calculation & Filter Performance
+*   **Data Types:** Use **Booleans or Integers** in calculations/filters; they are significantly faster than Strings.
+*   **Filter Efficiency:** 
+    *   Use **Extract/Data Source Filters** to limit data before it hits the workbook.
+    *   Use **Context Filters** (gray filters) to force Tableau to filter data before LODs are calculated.
+*   **Complex Logic:** Push logic to the **database level** (SQL/ETL) whenever possible.
+*   **Avoid ATTR:** Use `MIN` or `MAX` instead of `ATTR` or `AVG` to reduce computation load.
+
+## 6. Interactivity & Advanced Techniques
+*   **Filter Actions:** Use Dashboard Actions instead of "Quick Filter" dropdowns for faster rendering.
+*   **Common Table Expressions (CTEs):** Use CTEs in your views for readability and better execution plans.
+*   **Handling Distinct Counts:** `COUNT(DISTINCT)` is expensive. Pre-calculate flags in SQL:
+    ```sql
+    -- Create a unique flag in a View to avoid overhead
+    SELECT user_id, MIN(transaction_date) OVER(PARTITION BY user_id) as first_purchase
+    FROM sales;
+    ```
+
+## 7. Quick Development Shortcuts
 
 
 | Action | Shortcut (Windows) | Shortcut (Mac) |
