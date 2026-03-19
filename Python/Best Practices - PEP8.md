@@ -1,7 +1,7 @@
 # PEP 8 — The Style Guide for Python Code (Complete)
 
 ## 1. Indentation, Tabs & Line Length
-* **Indent:** Use **4 spaces** per level. Never mix tabs and spaces.
+* **Indent:** Use ~~**4 spaces**~~ **1 tab** per level. Never mix tabs and spaces.
 * **Maximum Line Length:** Limit code to **79 characters**; docstrings/comments to **72**.
 * **Hanging Indents:** Continuation lines should align elements vertically or use a 4-space indent.
 
