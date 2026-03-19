@@ -1,4 +1,4 @@
-# Google Data Analysis Process — Google's 6-Phase Playbook
+# Data Analysis Process — Google's 6-Phase Playbook
 
 ## 1. Ask
 **Goal:** Define the problem to be solved and understand stakeholder expectations.
