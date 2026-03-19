@@ -1,7 +1,7 @@
 # AI Prompting Frameworks for Analysts
 
 ## 1. The ROCE Framework
-**Best For:** Standardizing technical requests and ensuring consistent output formats.
+**Best For:** Standardizing technical requests and workflow optimizations.
 
 
 | Letter | Component | Description | Example |
@@ -14,23 +14,29 @@
 ---
 
 ## 2. The RISEN Framework
-**Best For:** Complex strategic research and deep problem-solving.
+**Best For:** Deep strategic research and complex data problem-solving.
 
-*   **Role:** Senior Business Analyst.
-*   **Input:** "I have a CSV of Q3 churn data."
-*   **Scenario:** "Our top competitors just launched a 50% discount campaign."
-*   **Expectation:** "Identify the top 3 segments most likely to switch."
-*   **Nuance:** "Keep the tone professional and avoid overly technical ML terms."
+
+| Letter | Component | Description | Example |
+| :--- | :--- | :--- | :--- |
+| **R** | **Role** | Define the persona. | "You are a Senior Business Analyst." |
+| **I** | **Input** | The data or resources. | "I have a CSV of Q3 churn data." |
+| **S** | **Scenario** | The specific situation. | "Competitors just launched a 50% discount." |
+| **E** | **Expectation**| The desired outcome. | "Identify the top 3 segments likely to switch." |
+| **N** | **Nuance** | Constraints or style. | "Keep it professional; avoid technical ML terms." |
 
 ---
 
 ## 3. The CARE Framework
-**Best For:** Drafting summaries or communicating results to stakeholders.
+**Best For:** Communicating results and drafting executive summaries.
 
-*   **Context:** "We just finished the year-end financial audit."
-*   **Action:** "Summarize the findings regarding operational spend."
-*   **Result:** "Create a 3-bullet summary for the CFO."
-*   **Example:** "Use a style like: [Category] - [Status] - [Delta]."
+
+| Letter | Component | Description | Example |
+| :--- | :--- | :--- | :--- |
+| **C** | **Context** | Project background. | "We just finished the year-end financial audit." |
+| **A** | **Action** | The specific task. | "Summarize findings regarding operational spend." |
+| **R** | **Result** | Goal of the response. | "Create a 3-bullet summary for the CFO." |
+| **E** | **Example** | Tone or format sample. | "Use: [Category] - [Status] - [Delta]." |
 
 ---
 
