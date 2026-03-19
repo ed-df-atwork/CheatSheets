@@ -1,9 +1,4 @@
-A list of GitHub emoji markup, adapted from rxavier's _[Complete list of github markdown emoji markup](https://gist.github.com/rxaviers/7360908)_, generated with a Grunt script for maintainability ([see repository](https://github.com/ricealexander/emoji-list)).
-
-Additional original source material: http://unicode.org/emoji/charts/full-emoji-list.html
-
-This table is available as a gist at https://gist.github.com/GerHobbelt/b9b87a2257ddd5251a45628d61385717 and as part of the build repo at https://github.com/GerHobbelt/emoji-list/blob/master/dist/emoji-list.md
-
+A list of GitHub emoji markup, adapted from Ger Hobbelt's _[Complete list of github markdown emoji markup](https://gist.github.com/GerHobbelt/b9b87a2257ddd5251a45628d61385717)_ adapted from rxavier's _[Complete list of github markdown emoji markup](https://gist.github.com/rxaviers/7360908)_, generated with a Grunt script for maintainability ([see repository](https://github.com/ricealexander/emoji-list)).
 
 # Table of Contents
 
